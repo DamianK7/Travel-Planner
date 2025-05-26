@@ -11,7 +11,7 @@
         <TextBox Name="NameTextBox" Margin="0,5"/>
         
         <TextBlock Text="Wybierz kraj:"/>
-        <ComboBox Name="CountryComboBox" Margin="0,5">
+        <ComboBox Name="CountryComboBox" SelectionChanged="CountryComboBox_SelectionChanged" Margin="0,5">
             <ComboBoxItem Content="Włochy"/>
             <ComboBoxItem Content="Japonia"/>
             <ComboBoxItem Content="Norwegia"/>
