@@ -2,8 +2,50 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="Travel_Planner.MainWindow"
-        Title="Travel_Planner">
-    Welcome to Avalonia!
+        Width="400" Height="800" Title="Planer Podróży"
+        x:Class="Travel_Planner.MainWindow">
+    <StackPanel Margin="10">
+        <TextBlock Text="Planer Podróży" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10"/>
+        
+        <TextBlock Text="Imię i nazwisko:"/>
+        <TextBox Name="NameTextBox" Margin="0,5"/>
+        
+        <TextBlock Text="Wybierz kraj:"/>
+        <ComboBox Name="CountryComboBox" Margin="0,5">
+            <ComboBoxItem Content="Włochy"/>
+            <ComboBoxItem Content="Japonia"/>
+            <ComboBoxItem Content="Norwegia"/>
+            <ComboBoxItem Content="USA"/>
+            <ComboBoxItem Content="Francja"/>
+        </ComboBox>
+        
+        <Image Name="CountryImage" Height="120" Margin="0,5"/>
+        
+        <TextBlock Text="Atrakcje turystyczne:"/>
+        <WrapPanel>
+            <CheckBox Name="MuseumCheck" Content="Muzea" Margin="5"/>
+            <CheckBox Name="ParksCheck" Content="Parki Narodowe" Margin="5"/>
+            <CheckBox Name="MonumentsCheck" Content="Zabytki" Margin="5"/>
+            <CheckBox Name="RestaurantsCheck" Content="Restauracje" Margin="5"/>
+            <CheckBox Name="ArtCheck" Content="Galerie sztuki" Margin="5"/>
+            <CheckBox Name="EventsCheck" Content="Festiwale i koncerty" Margin="5"/>
+        </WrapPanel>
+
+        <TextBlock Text="Środek transportu:"/>
+        <StackPanel Orientation="Horizontal" Margin="0,5">
+            <RadioButton Name="PlaneRadio" Content="Samolot" GroupName="Transport" Margin="5"/>
+            <RadioButton Name="CarRadio" Content="Samochód" GroupName="Transport" Margin="5"/>
+            <RadioButton Name="TrainRadio" Content="Pociąg" GroupName="Transport" Margin="5"/>
+            <RadioButton Name="ShipRadio" Content="Statek" GroupName="Transport" Margin="5"/>
+        </StackPanel>
+
+        <TextBlock Text="Dodaj miasta:"/>
+        <StackPanel Orientation="Horizontal" Margin="0,5">
+            <TextBox Name="CityTextBox" Width="200"/>
+            <Button Content="Dodaj miasto" Margin="5,0"/>
+        </StackPanel>
+        <ListBox Name="CityListBox" Height="100" Margin="0,5"/>
+
+        <Button Content="Pokaż szczegóły podróży" Margin="0,10" HorizontalAlignment="Center"/>
+    </StackPanel>
 </Window>
