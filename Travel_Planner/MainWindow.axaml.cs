@@ -1,3 +1,4 @@
+using System.IO;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Media.Imaging;
@@ -28,4 +29,32 @@ public partial class MainWindow : Window
             CityTextBox.Clear();
         }
     }
+    private void ShowSummary_Click(object? sender, RoutedEventArgs e)
+        {
+            string name = NameTextBox.Text;
+            
+            string country = "";
+            if (CountryComboBox.SelectedItem is ComboBoxItem comboBoxItem)
+            {
+                country = comboBoxItem.Content.ToString();
+            }
+            
+          
+            string cities = string.Join(", ", CityListBox.Items);
+            
+            string countryImagePath = string.Empty;
+            if (!string.IsNullOrEmpty(country))
+            {
+                countryImagePath = $"Images/{country}.jpg";
+                if (!File.Exists(countryImagePath))
+                {
+                    countryImagePath = string.Empty;
+                }
+            }
+            
+            SummaryWindow summaryWindow = new SummaryWindow(
+                 name, country, cities, countryImagePath
+            );
+            summaryWindow.Show();
+        }
 }
