@@ -39,7 +39,22 @@ public partial class MainWindow : Window
                 country = comboBoxItem.Content.ToString();
             }
             
-          
+            string attractions = "";
+            if (MuseumCheck.IsChecked == true) attractions += "Muzea, ";
+            if (ParksCheck.IsChecked == true) attractions += "Parki Narodowe, ";
+            if (MonumentsCheck.IsChecked == true) attractions += "Zabytki, ";
+            if (RestaurantsCheck.IsChecked == true) attractions += "Restauracje, ";
+            if (ArtCheck.IsChecked == true) attractions += "Galerie sztuki, ";
+            if (EventsCheck.IsChecked == true) attractions += "Festiwale i koncerty, ";
+            if (attractions.EndsWith(", "))
+                attractions = attractions.Remove(attractions.Length - 2);
+            
+            string transport = "";
+            if (PlaneRadio.IsChecked == true) transport = "Samolot";
+            if (CarRadio.IsChecked == true) transport = "Samochód";
+            if (TrainRadio.IsChecked == true) transport = "Pociąg";
+            if (ShipRadio.IsChecked == true) transport = "Statek";
+            
             string cities = string.Join(", ", CityListBox.Items);
             
             string countryImagePath = string.Empty;
@@ -53,7 +68,7 @@ public partial class MainWindow : Window
             }
             
             SummaryWindow summaryWindow = new SummaryWindow(
-                 name, country, cities, countryImagePath
+                name, country, attractions, transport, cities, countryImagePath
             );
             summaryWindow.Show();
         }
