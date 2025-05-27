@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 using Avalonia.Media.Imaging;
 
 namespace Travel_Planner;
@@ -17,6 +18,14 @@ public partial class MainWindow : Window
             string country = selectedItem.Content.ToString();
             string imagePath = $"Images/{country}.jpg";
             CountryImage.Source = new Bitmap(imagePath);
+        }
+    }
+    private void AddCity_Click(object? sender, RoutedEventArgs e)
+    {
+        if (!string.IsNullOrWhiteSpace(CityTextBox.Text))
+        {
+            CityListBox.Items.Add(CityTextBox.Text);
+            CityTextBox.Clear();
         }
     }
 }

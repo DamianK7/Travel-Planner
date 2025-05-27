@@ -42,7 +42,7 @@
         <TextBlock Text="Dodaj miasta:"/>
         <StackPanel Orientation="Horizontal" Margin="0,5">
             <TextBox Name="CityTextBox" Width="200"/>
-            <Button Content="Dodaj miasto" Margin="5,0"/>
+            <Button Content="Dodaj miasto" Click="AddCity_Click" Margin="5,0"/>
         </StackPanel>
         <ListBox Name="CityListBox" Height="100" Margin="0,5"/>
 
